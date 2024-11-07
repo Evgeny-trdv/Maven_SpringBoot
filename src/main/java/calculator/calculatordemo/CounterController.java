@@ -21,7 +21,7 @@ public class CounterController {
     }
 
     @GetMapping(path = "/plus")
-    public String sum(@RequestParam("num1") double num1, @RequestParam("num2") double num2) {
+    public String sum(@RequestParam(required = false, value = "num1" ) double num1, @RequestParam(required = false, value = "num2") double num2) {
         return counterService.sum(num1, num2);
     }
 

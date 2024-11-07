@@ -1,6 +1,7 @@
 package calculator.calculatordemo;
 
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 @Service
 public class CounterService {
@@ -9,6 +10,9 @@ public class CounterService {
     }
 
     public String sum(double num1, double num2) {
+        if (Double.isNaN(num1) || Double.isNaN(num2)) {
+            return "Ошибся";
+        }
         return num1 + " + " + num2 + " = " + (num1 + num2);
     }
 
