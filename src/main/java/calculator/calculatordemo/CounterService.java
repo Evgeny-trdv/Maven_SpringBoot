@@ -9,25 +9,36 @@ public class CounterService {
         return "<h1>Добро пожаловать в калькулятор</h1>";
     }
 
-    public String sum(double num1, double num2) {
-        if (Double.isNaN(num1) || Double.isNaN(num2)) {
-            return "Ошибся";
+    public String sum(Double num1, Double num2) {
+        if (num1 == null || num2 == null) {
+            return "Один из параметров не задан";
         }
         return num1 + " + " + num2 + " = " + (num1 + num2);
     }
 
-    public String minus(double num1, double num2) {
+    public String minus(Double num1, Double num2) {
+        if (num1 == null || num2 == null) {
+            return "Один из параметров не задан";
+        }
         return num1 + " - " + num2 + " = " + (num1 - num2);
     }
 
-    public String multiply(double num1, double num2) {
+    public String multiply(Double num1, Double num2) {
+        if (num1 == null || num2 == null) {
+            return "Один из параметров не задан";
+        }
         return num1 + " * " + num2 + " = " + (num1 * num2);
     }
 
-    public String divide(double num1, double num2) {
-        if (num2 == 0) {
-            return "Делить на 0 нельзя";
+    public String divide(Double num1, Double num2) {
+        if (num1 == null || num2 == null) {
+            return "Один из параметров не задан";
         }
-        return num1 + " / " + num2 + " = " + (num1 / num2);
+        if (num2 == 0.0) {
+            throw new ArithmeticException("Деление на 0 невозможно");
+        }
+        return num1 + " / " + num2 + " = " + num1 / num2;
+
+
     }
 }

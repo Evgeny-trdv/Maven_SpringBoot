@@ -21,22 +21,22 @@ public class CounterController {
     }
 
     @GetMapping(path = "/plus")
-    public String sum(@RequestParam(required = false, value = "num1" ) double num1, @RequestParam(required = false, value = "num2") double num2) {
+    public String sum(@RequestParam(required = false, value = "num1" ) Double num1, @RequestParam(required = false, value = "num2") Double num2) {
         return counterService.sum(num1, num2);
     }
 
     @GetMapping(path = "/minus")
-    public String minus(@RequestParam("num1") double num1, @RequestParam("num2") double num2) {
+    public String minus(@RequestParam(required = false, value = "num1") Double num1, @RequestParam(required = false, value = "num2") Double num2) {
         return counterService.minus(num1, num2);
     }
 
     @GetMapping(path = "/multiply")
-    public String multiply(@RequestParam("num1") double num1, @RequestParam("num2") double num2) {
+    public String multiply(@RequestParam(required = false, value = "num1") Double num1, @RequestParam(required = false, value = "num2") Double num2) {
         return counterService.multiply(num1, num2);
     }
 
     @GetMapping(path = "/divide")
-    public String divide(@RequestParam("num1") double num1, @RequestParam("num2") double num2) {
+    public String divide(@RequestParam(required = false, value = "num1") Double num1, @RequestParam(required = false, value = "num2") Double num2) throws ArithmeticException {
         return counterService.divide(num1, num2);
     }
 }
